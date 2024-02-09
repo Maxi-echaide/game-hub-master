@@ -11,7 +11,7 @@ interface FetchResponse<T> {
 
 const useData = <T>(endpoint:string, requestConfig?:AxiosRequestConfig, deps?: any[]) => {
   const [data, setData] = useState<T[]>([]);
-  const [error, setError] = useState('');
+  
   const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -35,7 +35,7 @@ const useData = <T>(endpoint:string, requestConfig?:AxiosRequestConfig, deps?: a
     return () => controller.abort();
   }, deps? [...deps]: []);
 
-  return { data, error, isLoading };
+  return { data, isLoading };
 };
 
 export default useData;
